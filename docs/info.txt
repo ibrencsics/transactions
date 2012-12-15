@@ -1,0 +1,5 @@
+
+Info:
+    * http://www.atomikos.com/Documentation/SpringIntegration
+    * http://www.javaworld.com/javaworld/jw-04-2007/jw-04-xa.html?page=1
+    * http://docs.codehaus.org/display/BTM/Spring+Framework2x

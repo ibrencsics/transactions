@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    ">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties">
+            <props>
+                <prop key="testQueueName">testQueue</prop>
+                <prop key="brokerURL">tcp://localhost:61616</prop>
+                <prop key="dbName">transaction_test</prop>
+                <prop key="dbHost">127.0.0.1</prop>
+                <prop key="dbPort">3306</prop>
+                <prop key="dbUser">root</prop>
+                <prop key="dbPassword">xxx</prop>
+                <prop key="dbURL">jdbc:mysql://${dbHost}:${dbPort}/${dbName}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="queue" class="org.apache.activemq.command.ActiveMQQueue">
+        <property name="physicalName" value="${testQueueName}" />
+    </bean>
+
+
+</beans>
